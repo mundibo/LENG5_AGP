@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="inicio"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h1>
+
+  </h1>
+  <h1>
+    
+  </h1>
+  <ion-list>
+    
+    <ion-list-header>
+      <ion-label></ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Colaborador:</ion-label>
+      <ion-input type="text" placeholder="¿Con quién?" [(ngModel)]="colaborador"></ion-input>
+    </ion-item>
+    <<ion-item>
+      <ion-label>Fecha</ion-label>
+      <ion-datetime  presentation="time-date" display-format="DD MMMM YYYY" 
+      min="2022-01-01"
+      max="2022-12-31"></ion-datetime> >
+    </ion-item>
+   
+  </ion-list>
+
+  
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button expand="full" color="light">AGENDAR  <ion-icon slot="end" name="calendar-outline"></ion-icon></ion-button>
+
+  </ion-toolbar>
+</ion-footer>

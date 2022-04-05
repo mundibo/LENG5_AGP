@@ -1,3 +1,26 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu side="end" menuId="first" contentId="main">
+    <ion-header>
+      
+     
+      <ion-toolbar color="danger">
+        <ion-title>Menú</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+    <ion-list id="menu-list">
+    <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+      <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false"
+        routerLinkActive="selected">
+        <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+        <ion-label>{{ p.title }}</ion-label>
+      </ion-item>
+
+    </ion-menu-toggle>
+      </ion-list>
+    
+    </ion-content>
+    <img src="assets/AGP.png" alt="AGP">
+  </ion-menu>
+  <ion-router-outlet id='main'></ion-router-outlet>
 </ion-app>
