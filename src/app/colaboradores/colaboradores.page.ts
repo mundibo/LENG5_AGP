@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ColaboradoresService } from '../services/colaboradores.service';
 
 @Component({
   selector: 'app-colaboradores',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ColaboradoresPage implements OnInit {
 
-  constructor() { }
+  colaborado = [];
+ 
+  constructor(private colaboradorService : ColaboradoresService) { }
+  
+  ngOnInit(){
+   this.listarColaboradores();
+  }
 
-  ngOnInit() {
+  listarColaboradores(){
+    this.colaboradorService.listColaboradores().subscribe(data=>{
+      console.log(data);
+      if(data.success){
+        this.colaborado = data.colaboradores;
+
+      }else{
+        this.colaborado= [];
+      }
+    });
   }
 
 }

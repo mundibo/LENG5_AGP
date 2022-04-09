@@ -6,17 +6,20 @@
       <ion-title>VALORES</ion-title>
     </ion-buttons>
   </ion-toolbar> 
+
+
+  
 </ion-header>
 
 <ion-content>
-  <ion-list *ngFor="let valor of valo">
+<!--   <ion-list *ngFor="let colaborador of colaborado">
     <ion-item>
       <ion-label>
-        {{this.valor.val_codigo + ' - ' + this.valor.val_nombre}}
+        {{this.colaborador.col_codigo + ' - ' + this.colaborador.col_nombre_apellido}}
       </ion-label>
     </ion-item>
     
-  </ion-list>
+  </ion-list> -->
 
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
@@ -26,8 +29,7 @@
     </ion-fab-button>
 
     <ion-fab-list side="top">
-      <ion-fab-button   class="eliminar"
-      (click)="borrarValor(valor.val_codigo)" color="secundary"><ion-icon name="trash"></ion-icon></ion-fab-button>
+      <ion-fab-button color="secundary"><ion-icon name="trash"></ion-icon></ion-fab-button>
       <ion-fab-button color="secundary"><ion-icon name="search"></ion-icon></ion-fab-button>
     </ion-fab-list>
 
@@ -38,8 +40,22 @@
       <ion-fab-button color="secundary"><ion-icon name="add-outline"></ion-icon></ion-fab-button>
      
     </ion-fab-list>
+
+
   </ion-fab>
+
+
+<!-- 
+  <ion-list>
+    <ion-item *ngFor="let item of data; let i = index">
+      <ion-label>Item {{ i + 1 }}</ion-label>
+    </ion-item>
+  </ion-list>
+ -->
+
 </ion-content>
+
+
 <ion-footer>
   <ion-toolbar>
   
