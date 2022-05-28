@@ -1,45 +1,49 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title><strong>Crear Cuenta</strong></ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-  <ion-card>
-    <ion-card-content>
-
-     <ion-label class="texttitle" ><strong>Complete los Campos</strong> </ion-label> 
-
- 
-     <ion-item >
-      <ion-label position="floating" >Nombre y Apellidos</ion-label>
-      <ion-input type="text" ></ion-input>
-
-    </ion-item>
-
-    <ion-item >
-      <ion-label position="floating" >Correo Electrónico</ion-label>
-      <ion-input type="email" required="correo" ></ion-input>
-    </ion-item>
-
-  
-    <ion-item>
-      <ion-label position="floating">Clave</ion-label>
-      <ion-input type="password"></ion-input>
-    </ion-item>
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title><strong>Crear Cuenta</strong></ion-title>
+      </ion-toolbar>
+    </ion-header>
     
-    <ion-item>
-      <ion-label position="floating">Confirmar Clave</ion-label>
-      <ion-input type="password"></ion-input>
-    </ion-item>
+    <ion-content>
+      <form [formGroup]="registrousuario" (ngSubmit)="guardarUsuario()">
+      <ion-card>
+        <ion-card-content>
     
-      <ion-button type="submit" class="btnregistro" expand="block">Registrar</ion-button>
+         <ion-label class="texttitle" ><strong>Complete los Campos</strong> </ion-label> 
+    
      
-      
-   
-
-    </ion-card-content>
+         <ion-item >
+          <ion-label position="floating" >Nombre</ion-label>
+          <ion-input type="text" formControlName="nombre"></ion-input>
     
+        </ion-item>
+        
+        <ion-item >
+          <ion-label position="floating" >Apellido</ion-label>
+          <ion-input type="text" formControlName="apellido"></ion-input>
+    
+        </ion-item>
+    
+        <ion-item >
+          <ion-label position="floating" >Correo Electrónico</ion-label>
+          <ion-input type="email"  formControlName="correo"></ion-input>
+        </ion-item>
+        <ion-item >
+          <ion-label position="floating" >Contraseña</ion-label>
+          <ion-input type="password"  formControlName="pass"></ion-input>
+        </ion-item>
+        <ion-item >
+          <ion-label position="floating" >Nuevamente Contraseña</ion-label>
+          <ion-input type="password"  formControlName="pass2"></ion-input>
+        </ion-item>
+        
+        <ion-button type="submit" class="btnregistro" expand="block" [disabled]="!registrousuario.valid" >Registrar</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </form>
+    </ion-content>  
+        
+        

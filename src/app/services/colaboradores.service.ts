@@ -16,5 +16,26 @@ export class ColaboradoresService {
     return this.http.get(this.x);
   }
 
+  public getById(codigo: string): Observable<any> {
+    return this.http.get(this.x + `/find/` + codigo);
+  }
+  
+  
+  public create(colaborador:any){
+    if(colaborador.col_codigo){
+      //Actualiza los datos
+      return this.http.put(this.x+`/update`,colaborador);
+    }else{
+    // Crea Registro nuevo
+      return this.http.post(this.x+`/create`,colaborador);
+    }
+  }
+  
+  
+  public delete(codigo:String){
+    return this.http.delete(this.x+`/remove/${codigo}`);
+    
+  }
+
 
 }

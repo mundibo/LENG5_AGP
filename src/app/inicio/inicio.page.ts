@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonList, ToastController } from '@ionic/angular';
+import { ReconocimientoService } from '../services/reconocimiento.service';
 
 @Component({
   selector: 'app-inicio',
@@ -7,9 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioPage implements OnInit {
 
-  constructor() { }
+  @ViewChild(IonList) ionList: IonList;
 
-  ngOnInit() {
+  reco = [];
+ 
+  constructor(private reconocimientoService : ReconocimientoService, private toastCtrl: ToastController) { }
+  
+  ngOnInit(){
+   this.listarReconocimientos();
+  }
+  ionViewWillEnter() {
+    this.listarReconocimientos();
+  }
+
+  listarReconocimientos(){
+    this.reconocimientoService.listReconocimientos().subscribe(data=>{
+      console.log(data);
+      if(data.success){
+        this.reco = data.reconocimientos;
+
+      }else{
+        this.reco= [];
+      }
+    });
   }
 
 }

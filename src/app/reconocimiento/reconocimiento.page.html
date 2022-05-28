@@ -2,59 +2,43 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="inicio"></ion-back-button>
-    <ion-title class="ion-text-center">  RECONOCIMIENTO  </ion-title>
+      <ion-title class="ion-text-center"> RECONOCIMIENTO </ion-title>
     </ion-buttons>
-  </ion-toolbar> 
+  </ion-toolbar>
 
 </ion-header>
-
 <ion-content>
-  <h1>
+  <form [formGroup]="registroreconomiento" (ngSubmit)="guardarReconocimiento()">
+    <ion-list class="prueba">
 
-  </h1>
-  <h1>
-    
-  </h1>
-  <ion-list>
-    
-    <ion-list-header>
-      <ion-label></ion-label>
-    </ion-list-header>
-
-    <ion-item>
-      <ion-label>Colaborador:</ion-label>
-      <ion-input type="text" placeholder="¿A quién?" [(ngModel)]="colaborador"></ion-input>
-    </ion-item>
-
-    <h1>
-    
-    </h1>
-    <h1>
-    
-    </h1>
-    <ion-item>
-      <ion-label>Valores:</ion-label>
-      <ion-input type="text" placeholder="¿Cuál?" [(ngModel)]="valores"></ion-input>
-    </ion-item>
-
-    <h1>
-    
-    </h1>
-    <h1>
-    
-    </h1>
-    <ion-item>
-      <ion-label>Mensaje:</ion-label>
-      <ion-input type="text" placeholder="¿Por qué?" [(ngModel)]="mensaje"></ion-input>
-    </ion-item>
-  </ion-list>
-
-  
+      <ion-item>
+        <ion-label position="floating">Colaborador</ion-label>
+        <ion-select formControlName="colaborador">
+          <ion-select-option *ngFor="let colaborador of colaboradores" [value]="colaborador.col_codigo">
+            {{colaborador.col_nombre_apellido}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Valores</ion-label>
+        <ion-select formControlName="valor">
+          <ion-select-option *ngFor="let valor of valores" [value]="valor.val_codigo">{{valor.val_nombre}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Mensaje:</ion-label>
+        <ion-input type="text" placeholder="¿Por qué?" formControlName="mensaje"></ion-input>
+      </ion-item>
+      <ion-button type="submit" expand="full" color="light">ENVIAR
+        RECONOCIMIENTO <ion-icon slot="end" name="star-outline"></ion-icon>
+      </ion-button>
+    </ion-list>
+  </form>
 </ion-content>
 
 <ion-footer>
   <ion-toolbar>
-    <ion-button expand="full" color="light">ENVIAR RECONOCIMIENTO  <ion-icon slot="end" name="star-outline"></ion-icon></ion-button>
 
+  
   </ion-toolbar>
 </ion-footer>

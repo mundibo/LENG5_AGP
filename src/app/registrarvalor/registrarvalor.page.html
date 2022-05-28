@@ -1,63 +1,40 @@
 <ion-header>
-
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="inicio"></ion-back-button>
-      <ion-title>VALORES</ion-title>
+      <ion-menu-button></ion-menu-button>
     </ion-buttons>
-  </ion-toolbar> 
-
-
-  
+    <ion-title><strong>Registro del Valor</strong></ion-title>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
-<!--   <ion-list *ngFor="let colaborador of colaborado">
-    <ion-item>
-      <ion-label>
-        {{this.colaborador.col_codigo + ' - ' + this.colaborador.col_nombre_apellido}}
-      </ion-label>
-    </ion-item>
-    
-  </ion-list> -->
+  <form [formGroup]="registrovalor" (ngSubmit)="guardarValor()">
+  <ion-card>
+    <ion-card-content>
 
+     <ion-label class="texttitle" ><strong>Complete los Campos</strong> </ion-label> 
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    
-    <ion-fab-button  color="danger">
-      <ion-icon name="ellipsis-vertical-outline"></ion-icon>
-    </ion-fab-button>
-
-    <ion-fab-list side="top">
-      <ion-fab-button color="secundary"><ion-icon name="trash"></ion-icon></ion-fab-button>
-      <ion-fab-button color="secundary"><ion-icon name="search"></ion-icon></ion-fab-button>
-    </ion-fab-list>
-
-
-    <ion-fab-list side="start">
-      <ion-fab-button color="secundary"><ion-icon name="create-outline"></ion-icon></ion-fab-button>
-      
-      <ion-fab-button color="secundary"><ion-icon name="add-outline"></ion-icon></ion-fab-button>
-     
-    </ion-fab-list>
-
-
-  </ion-fab>
-
-
-<!-- 
-  <ion-list>
-    <ion-item *ngFor="let item of data; let i = index">
-      <ion-label>Item {{ i + 1 }}</ion-label>
-    </ion-item>
-  </ion-list>
- -->
-
-</ion-content>
-
-
-<ion-footer>
-  <ion-toolbar>
+ 
+     <ion-item >
+      <ion-label position="floating" >Nombres del Valor</ion-label>
+      <ion-input type="text" formControlName="nombre"></ion-input>
   
-  </ion-toolbar>
-</ion-footer>
+    </ion-item>
+    <ion-item >
+      <ion-label position="floating" >Descripcion</ion-label>
+      <ion-input type="text" formControlName="descripcion"></ion-input>
+  
+    </ion-item>
+  
+    
+      <ion-button type="submit" class="btnregistro" expand="block" [disabled]="!registrovalor.valid" >Registrar</ion-button>
+     
+      
+   
+
+    </ion-card-content>
+  </ion-card>
+</form>
+</ion-content>  
+    
+    

@@ -20,11 +20,15 @@ const routes: Routes = [
     loadChildren: () => import('./reestablecer/reestablecer.module').then( m => m.ReestablecerPageModule)
   },
   {
+    path: 'registrarusuario/:id',
+    loadChildren: () => import('./registrarusuario/registrarusuario.module').then( m => m.RegistrarusuarioPageModule)
+  },
+  {
     path: 'registrarusuario',
     loadChildren: () => import('./registrarusuario/registrarusuario.module').then( m => m.RegistrarusuarioPageModule)
   },
   {
-    path: 'registrarcolaborador',
+    path: 'registrarcolaborador/:id',
     loadChildren: () => import('./registrarcolaborador/registrarcolaborador.module').then( m => m.RegistrarcolaboradorPageModule)
   },
   {
@@ -34,6 +38,10 @@ const routes: Routes = [
   {
     path: 'inicio',
     loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
+  },
+  {
+    path: 'reconocimiento/:id',
+    loadChildren: () => import('./reconocimiento/reconocimiento.module').then( m => m.ReconocimientoPageModule)
   },
   {
     path: 'reconocimiento',
@@ -48,8 +56,12 @@ const routes: Routes = [
     loadChildren: () => import('./valores/valores.module').then( m => m.ValoresPageModule)
   },
   {
-    path: 'registrarvalor',
+    path: 'registrarvalor/:id',
     loadChildren: () => import('./registrarvalor/registrarvalor.module').then( m => m.RegistrarvalorPageModule)
+  },
+  {
+    path: 'perfil',
+    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
   }
 
 ];
