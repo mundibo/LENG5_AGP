@@ -1,5 +1,7 @@
 {
   "name": "AGP",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

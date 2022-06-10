@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -85,5 +85,14 @@ export class UsuariosService {
   await this.storage.set('codigo',usu_codigo);
   }
 
+  logout(){
+    this.storage.create();
+    this.token = null;
+    this.storage.clear();
+    this.router.navigate(['/login']);
+    
+
+    
+  }
 
 }

@@ -36,6 +36,10 @@ const routes: Routes = [
     loadChildren: () => import('./registrarreunion/registrarreunion.module').then( m => m.RegistrarreunionPageModule)
   },
   {
+    path: 'registrarreunion/:id',
+    loadChildren: () => import('./registrarreunion/registrarreunion.module').then( m => m.RegistrarreunionPageModule)
+  },
+  {
     path: 'inicio',
     loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
   },
@@ -62,6 +66,14 @@ const routes: Routes = [
   {
     path: 'perfil',
     loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
+  },
+  {
+    path: 'reuniones/:id',
+    loadChildren: () => import('./reunion/reunion.module').then( m => m.ReunionPageModule)
+  },
+  {
+    path: 'reuniones',
+    loadChildren: () => import('./reunion/reunion.module').then( m => m.ReunionPageModule)
   }
 
 ];

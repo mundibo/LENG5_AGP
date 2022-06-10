@@ -30,5 +30,9 @@ public getById(codigo: string): Observable<any> {
   return this.http.get(this.x + `/find/` + codigo);
 }
 
+public Filter(texto:String){
+  return this.http.get(`http://localhost:3000/reconocimientos-filter?q=${texto}`);
+  
+}
 
 }

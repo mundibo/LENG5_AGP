@@ -1,0 +1,52 @@
+.container {
+    width: 150px;
+    height: 150px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 7%;
+    border-radius: 0%;
+  }
+
+  .outer {
+    width: 120% !important;
+    height: 120% !important;
+    max-width: 150px !important; /* any size */
+    max-height: 150px !important; /* any size */
+    margin: auto;
+    position: relative;
+    background-size: 150px 150px;
+    border-radius: 0%;
+    border:5px solid #FFE550;
+  }
+
+  .inner {
+    background-color: #FFE550;
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .camera-icon {
+    height: 30px;
+    width: 30px;
+    color: black;
+  }
+
+  .btnregistro{
+    --background: #39B54A;
+    color: black;
+    margin-top: 80%;
+    margin-bottom: 4%;
+ }
+
+ 
+
+ion-toolbar{
+    --background: #39B54A;
+   }
+

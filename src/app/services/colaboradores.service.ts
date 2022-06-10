@@ -36,6 +36,10 @@ export class ColaboradoresService {
     return this.http.delete(this.x+`/remove/${codigo}`);
     
   }
+  public Filter(texto:String){
+    return this.http.get(`http://localhost:3000/colaboradores-filter?q=${texto}`);
+    
+  }
 
 
 }

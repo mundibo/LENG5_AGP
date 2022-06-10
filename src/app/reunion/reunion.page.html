@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title><strong>Registrar reunión</strong></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="registroreunion" (ngSubmit)="guardarReunion()">
+  <ion-card>
+    <ion-card-content>
+
+     <ion-label class="texttitle" ><strong>Complete los Campos</strong> </ion-label> 
+
+     <ion-item>
+      <ion-label position="floating">Colaborador</ion-label>
+      <ion-select formControlName="colaborador">
+        <ion-select-option *ngFor="let colaborador of colaboradores" [value]="colaborador.col_codigo">
+          {{colaborador.col_nombre_apellido}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+     <ion-item >
+      <ion-label position="floating" >Motivo</ion-label>
+      <ion-input type="text" formControlName="motivo"></ion-input>
+  
+    </ion-item>
+
+    <ion-item>
+      <ion-label class="general"><strong>Fecha</strong></ion-label>
+      <ion-input formControlName="fecha" type="date"></ion-input>
+    </ion-item> 
+      <ion-button type="submit" class="btnregistro" expand="block" [disabled]="!registroreunion.valid" >Registrar</ion-button>
+     
+    </ion-card-content>
+  </ion-card>
+</form>
+</ion-content>  
+    
+    

@@ -11,8 +11,10 @@ export class AppComponent {
     { title: 'Inicio', url: '/inicio', icon: 'home' },
     { title: 'Registrar Reunión', url: '/registrarreunion', icon: 'calendar' },
     { title: 'Reconocimiento', url: '/reconocimiento', icon: 'star' },
-    { title: 'Colaboradores', url: '/colaboradores', icon: 'person' },
-    { title: 'Valores', url: '/valores', icon: 'thumbs-up' }
+    { title: 'Colaboradores', url: '/colaboradores', icon: 'people' },
+    { title: 'Valores', url: '/valores', icon: 'thumbs-up' },
+    { title: 'Perfil', url: '/perfil', icon: 'person' }
+
   ];
   
   

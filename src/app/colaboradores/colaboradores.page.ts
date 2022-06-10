@@ -18,6 +18,19 @@ export class ColaboradoresPage implements OnInit {
    this.listarColaboradores();
   }
 
+  
+  buscar(event) {
+    const valor = event.detail.value;
+
+    this.colaboradorService.Filter(valor).subscribe((data) => {
+      console.log(data);
+      if (data) {
+        this.colaborado = data['colaboradores'];
+      } else {
+        this.colaborado = [];
+      }
+    });
+  }
   ionViewWillEnter() {
     this.listarColaboradores();
   }
@@ -51,5 +64,6 @@ export class ColaboradoresPage implements OnInit {
    
     });
   }
+
 
 }

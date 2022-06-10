@@ -12,6 +12,9 @@ export class InicioPage implements OnInit {
   @ViewChild(IonList) ionList: IonList;
 
   reco = [];
+  
+  textoBuscar = '';
+
  
   constructor(private reconocimientoService : ReconocimientoService, private toastCtrl: ToastController) { }
   
@@ -20,6 +23,19 @@ export class InicioPage implements OnInit {
   }
   ionViewWillEnter() {
     this.listarReconocimientos();
+  }
+
+  buscar(event) {
+    const valor = event.detail.value;
+
+    this.reconocimientoService.Filter(valor).subscribe((data) => {
+      console.log(data);
+      if (data) {
+        this.reco = data['reconocimientos'];
+      } else {
+        this.reco = [];
+      }
+    });
   }
 
   listarReconocimientos(){

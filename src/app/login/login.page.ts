@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 import { UsuariosService } from '../services/usuarios.service';
-import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Storage } from '@ionic/storage';
+import { AlertController } from '@ionic/angular';
 
 
 @Component({
@@ -31,6 +31,7 @@ export class LoginPage implements OnInit {
 
 
   async obtenerLogin( ){
+    console.log("hola");
     this.storage.create();
 
     const valido = await this.usuarioService.login(this.login.value.correo,this.login.value.pass);

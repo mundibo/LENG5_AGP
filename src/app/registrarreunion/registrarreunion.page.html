@@ -6,38 +6,68 @@
   </ion-toolbar>
 </ion-header>
 
+<ion-toolbar>
+  <ion-searchbar placeholder="Buscar Reunion por Fecha"
+                 animated
+                 debounce="700"
+                 [value]="textoBuscar"
+                 (ionChange)="buscar( $event )"></ion-searchbar>
+</ion-toolbar>
+
+
+
+
 <ion-content>
-  <h1>
-
-  </h1>
-  <h1>
-    
-  </h1>
   <ion-list>
-    
-    <ion-list-header>
-      <ion-label></ion-label>
-    </ion-list-header>
-
+<!--     
     <ion-item>
-      <ion-label>Colaborador:</ion-label>
-      <ion-input type="text" placeholder="¿Con quién?" [(ngModel)]="colaborador"></ion-input>
-    </ion-item>
-    <<ion-item>
-      <ion-label>Fecha</ion-label>
-      <ion-datetime  presentation="time-date" display-format="DD MMMM YYYY" 
+   <ion-datetime  presentation="time-date" display-format="DD MMMM YYYY" 
       min="2022-01-01"
-      max="2022-12-31"></ion-datetime> >
+      max="2022-12-31"></ion-datetime> 
     </ion-item>
    
-  </ion-list>
 
-  
+    <ion-item-sliding *ngFor="let  reunion of reuniones">
+      <ion-item [routerLink]="'/reunion/'+reunion.reu_codigo">
+      <ion-item-options side="start">
+        <ion-item-option class="eliminar" (click)="eliminar(reunion.reu_codigo)">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+        <ion-label>
+          {{this.reunion.nombre}} - {{this.reunion.reu_fecha}} 
+        </ion-label>
+      </ion-item>
+    </ion-item-sliding>
+
+  </ion-list> -->
+
+
+  <ion-card>
+    
+    <ion-item-sliding *ngFor="let  reunion of reuniones">
+    <ion-item [routerLink]="'/reuniones/'+reunion.reu_codigo">
+      <ion-item-options side="start">
+        <ion-item-option class="eliminar" (click)="eliminar(reunion.reu_codigo)">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+      <ion-card-header>
+        <ion-card-title>{{this.reunion.reu_fecha}} </ion-card-title> 
+        <ion-label>{{this.reunion.nombre}} </ion-label>
+        <ion-card-subtitle>{{this.reunion.reu_motivo}} </ion-card-subtitle> 
+
+      </ion-card-header>
+    </ion-item>
+  </ion-item-sliding>
+  </ion-card>
+  <ion-button expand="full" color="light"  [routerLink]="['/reuniones/0']">AGENDAR REUNIÓN  <ion-icon slot="end" name="calendar-outline"></ion-icon></ion-button>
+
+</ion-list>
 </ion-content>
 
 <ion-footer>
-  <ion-toolbar>
-    <ion-button expand="full" color="light">AGENDAR  <ion-icon slot="end" name="calendar-outline"></ion-icon></ion-button>
 
-  </ion-toolbar>
+    <img src="https://img.freepik.com/vector-gratis/ilustracion-vector-fondo-calendario-signo-circulo-planificacion-gestion-tiempo-organizacion-trabajo-eventos-vida-o-vacaciones_2175-985.jpg">
+
 </ion-footer>
